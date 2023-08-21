@@ -43,8 +43,9 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        if len(s) ==0:
+            return True
         tempS = list(s)
-        print('sList',tempS)
         tempT = list(t)
         for i in range(len(tempT)):
             if tempS[0] ==tempT[i]:
