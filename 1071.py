@@ -42,3 +42,4 @@ class Solution(object):
         :type str2: str
         :rtype: str
         """
+        print("hello world")
