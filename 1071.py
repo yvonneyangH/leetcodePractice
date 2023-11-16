@@ -42,3 +42,35 @@ class Solution(object):
         :type str2: str
         :rtype: str
         """
+        result = ""
+        if len(str1)==len(str2):
+            if str1==str2:
+                return str1
+            else:
+                return result
+        elif len(str1)>len(str2):
+            testStr = str2
+            targetStr = str1
+        else:
+            testStr = str1
+            targetStr = str2
+        for x in range(len(testStr)):
+            tempStr = testStr[0:x+1]
+            if len(targetStr)%(x+1) == 0 and len(testStr)%(x+1)==0:
+                StrCompareTarget = len(targetStr)//(x+1)*(tempStr)
+                StrCompareTest = len(testStr)//(x+1)*(tempStr)
+                if StrCompareTarget == targetStr and StrCompareTest == testStr:                   
+                    result = tempStr
+
+        return result
+
+str1 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"
+str2 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"   
+solution = Solution()
+print(solution.gcdOfStrings(str1,str2))   
+            
+            
+            
+            
+        
+        
