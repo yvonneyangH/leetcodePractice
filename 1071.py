@@ -42,6 +42,7 @@ class Solution(object):
         :type str2: str
         :rtype: str
         """
+
         result = ""
         if len(str1)==len(str2):
             if str1==str2:
