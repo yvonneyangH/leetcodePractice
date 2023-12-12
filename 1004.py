@@ -38,6 +38,32 @@ nums[i] is either 0 or 1.
 
 class Solution(object):
     def longestOnes(self, nums, k):
+       """
+       :type nums: List[int]
+       :type k: int
+       :rtype: int
+       """
+       start = 0
+       end = 0
+       maxLen = -1
+       while end <len(nums):
+           if nums[end]==1:
+               end+=1
+           else:
+               if k > 0:
+                   k-=1
+                   end+=1
+               else:
+                   while nums[start] != 0:
+                       start += 1
+                   start+= 1
+                   k+= 1
+           maxLen = max(maxLen, end - start)
+       return maxLen
+
+    
+    
+    def longestOnes2(self, nums, k):
         """
         :type nums: List[int]
         :type k: int
@@ -63,12 +89,12 @@ class Solution(object):
                     countEnd = True
                 if j >= len(nums):
                     countEnd = True
-            if currCount > maxCount:
+            if currCount > maxCount:    
                 maxCount = currCount
             print("j:",j," currCount:",currCount)      
         return maxCount
 
 nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
-k = 3
+k = 2
 solution = Solution()
 print(solution.longestOnes(nums, k))
